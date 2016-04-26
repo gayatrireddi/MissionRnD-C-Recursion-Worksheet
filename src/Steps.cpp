@@ -18,13 +18,22 @@
 	Example Input : get_steps(5)
 	Example Output : Returns 8
 
-	Note : Test Cases would be small <25.
+
+*	Note : Test Cases would be small <25.
 
 */
 #include "stdafx.h"
 
-
-int get_steps(int s)
-{
-	return 0;
-}
+	int fib(int x)
+	{
+		if (x == 0)
+			return 0;
+		else if (x== 1)
+			return 1;
+		else
+			return (fib(x - 1) + fib(x- 2));
+	}
+	int get_steps(int s)
+	{
+		return fib(s + 1);
+	}

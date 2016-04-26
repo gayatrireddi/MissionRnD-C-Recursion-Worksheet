@@ -38,5 +38,56 @@ more parameters .
 
 int path_exists(int *maze, int rows, int columns, int x1, int y1, int x2, int y2)
 {
-	return 1;
+	if (x1<0 || x1 >rows || y1<0 || y1>columns)
+		return 0;
+	else
+	{
+		if (rows == 1)
+		{
+
+			while (maze[x1, y1 + 1] != 0 && y1 != y2)
+			{
+				y1 = y1 + 1;
+			}
+			if (y1 == y2)
+				return 1;
+			else return 0;
+		}
+		if (columns == 1)
+		{
+
+			while (maze[x1 + 1, y1] != 0 && x1 != x2)
+			{
+				x1 = x1 + 1;
+			}
+			if (x1 == x2)
+				return 1;
+			else return 0;
+		}
+
+		if (maze[x1, y1 + 1] == 1)
+		{
+			x1 = x1;
+			y1 = y1 + 1;
+		}
+
+		if (maze[x1 + 1, y1] == 1)
+		{
+			x1 = x1 + 1;
+			y1 = y1;
+		}
+		if (maze[x1 - 1, y1] == 1)
+		{
+			x1 = x1 - 1;
+			y1 = y1;
+		}
+		if (maze[x1, y1 - 1] == 1)
+		{
+			x1 = x1;
+			y1 = y1 - 1;
+		}
+		if (x1 == x2 && y1 == y2)
+			return 1;
+		else return 0;
+	}
 }
